@@ -17,7 +17,9 @@
 
   font-size: 62.5%;
   --fs-body: 1.6rem;
-  --fs-heading: 4rem; 
+  --fs-heading: clamp(4rem, 1rem + 5vw, 5.6rem);
+  --fs-heading-sm: clamp(3rem, 0.5rem + 3vw, 4rem);
+  
 }
 
 body {
@@ -87,11 +89,14 @@ header h1 {
   border-radius: 6px;
 
   transition: all 200ms;
+
+  filter: brightness(0.3) drop-shadow(2px 2px 2px black);
 }
 
 .card img:hover {
   transform: scale(1.1);
-  opacity: 0.4;
+
+  filter: brightness(1) drop-shadow(2px 2px 2px black);  
 }
 
 .card h2 {
@@ -99,12 +104,14 @@ header h1 {
   bottom: 5.2rem;
   left: 2.8rem;
 
-  font-size: 4rem;
+  font-size: var(--fs-heading-sm);
   font-weight: 800;
 
   display: flex;
   flex-direction: column;
   gap: 2.8rem;
+
+  
 }
 
 .card h2 span {
@@ -149,21 +156,17 @@ header h1 {
 
 
 @media (min-width: 700px) {
-  :root {
-    --fs-heading: 5.6rem;
-  }
-  
   .page {
     max-width: 117rem;
     padding: 0 5rem;
   }
 
   main {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: 930px) {
+@media (min-width: 1140px) {
   
   main {
     grid-template-areas: "A B B"
@@ -184,5 +187,13 @@ header h1 {
 
   main div:nth-child(4) {
     grid-area: D;
+  }
+
+  .card img {
+    filter: brightness(0.3) drop-shadow(2px 2px 2px black);
+  }
+
+  .card img:hover {
+    filter: brightness(1) drop-shadow(2px 2px 2px black);
   }
 }
