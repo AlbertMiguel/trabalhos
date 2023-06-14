@@ -75,10 +75,8 @@ header h1 {
   line-height: 4.8rem;
 }
 
-
 .card {
   position: relative;
-
   font-family: var(--ff-heading);
 }
 
